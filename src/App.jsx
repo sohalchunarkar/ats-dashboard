@@ -6,12 +6,13 @@ import MainLayout from './components/MainLayout'
 import DashBoard from './pages/DashBoard'
 import JobsLIsting from './pages/JobsLIsting'
 import Candidates from './pages/Candidates'
+import About from './pages/About'
 
 const App = () => {
   return (
     <div>
       <Routes>
-        
+
 
         <Route path='/login' element={<LoginPage />} />
 
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='/dashboard' element={<DashBoard />} />
           <Route path='/jobs' element={<JobsLIsting />} />
           <Route path='/candidates' element={<Candidates />} />
+          <Route path='/about' element={<About />} />
 
         </Route>
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
