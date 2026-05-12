@@ -1,7 +1,7 @@
 import React from 'react'
 import dashboardSummary from '../data/dashboardSummary'
 
-// Helper function to render tiny inline SVGs
+
 const renderIcon = (iconName) => {
     const baseClasses = "w-5 h-5";
     switch (iconName) {

@@ -7,13 +7,13 @@ const JobsLIsting = () => {
   const [searchQuery, setSearchQuery] = useState("")
   const [department, setDepartment] = useState("")
 
-  // State to hold jobs after filtering but before pagination
+
   const [filteredJobs, setFilteredJobs] = useState(postedJobs)
 
-  // State to hold the jobs currently visible on the screen
+
   const [displayedJobs, setDisplayedJobs] = useState([])
 
-  // Effect 1: Handles Filtering by Department
+
   useEffect(() => {
     let result = postedJobs
     if (department !== "") {
@@ -24,34 +24,34 @@ const JobsLIsting = () => {
       result = result.filter((job) => job.title.toLowerCase().includes(searchQuery.toLowerCase()))
     }
     setFilteredJobs(result)
-    // Very important: reset to page 1 when the user changes the filter!
+
     setPageno(1)
   }, [department, searchQuery])
 
-  // Effect 2: Handles Pagination (Slicing the filtered data)
+
   useEffect(() => {
     const startIndex = 7 * (pageno - 1);
     const endIndex = 7 * pageno;
-    // Slice from filteredJobs instead of postedJobs
+
     const currentJobs = filteredJobs.slice(startIndex, endIndex);
 
     setDisplayedJobs(currentJobs);
   }, [pageno, filteredJobs])
 
-  // Calculate max pages based on the filtered list
+
   const maxPages = Math.ceil(filteredJobs.length / 7) || 1;
 
   return (
     <div className="space-y-6">
-      {/* Header Section */}
+
       <div>
         <h1 className="text-3xl font-bold text-slate-100 tracking-tight">Job Listings</h1>
         <p className="text-slate-400 mt-2">Manage and track all open positions.</p>
       </div>
 
-      {/* Top Bar: Search and Filter */}
+
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-between bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
-        {/* Search Bar */}
+
         <div className="relative w-full sm:w-96">
           <svg className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -66,7 +66,7 @@ const JobsLIsting = () => {
           />
         </div>
 
-        {/* Filter Dropdown */}
+
         <div className="w-full sm:w-auto flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
           <span className="text-sm font-medium text-slate-400 pl-1 sm:pl-0">Filter by Department:</span>
           <div className="relative w-full sm:w-auto">
@@ -90,7 +90,7 @@ const JobsLIsting = () => {
         </div>
       </div>
 
-      {/* Middle Content Area */}
+
       <div className="flex flex-col gap-4 min-h-100">
         {displayedJobs.length > 0 ? (
           displayedJobs.map((job) => (
@@ -103,7 +103,7 @@ const JobsLIsting = () => {
         )}
       </div>
 
-      {/* Pagination Footer */}
+
       <div className="flex items-center justify-between bg-slate-800 px-6 py-4 rounded-xl border border-slate-700 shadow-sm">
         <button
           onClick={() => {

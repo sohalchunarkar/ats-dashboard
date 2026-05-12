@@ -1,8 +1,8 @@
 import React from 'react'
 
 const OfferAcceptanceCard = () => {
-    // Dummy Data
-    const acceptanceRate = 85; // Percentage
+
+    const acceptanceRate = 85;
     const acceptedOffers = 34;
     const totalOffers = 40;
 
@@ -23,7 +23,7 @@ const OfferAcceptanceCard = () => {
                 </div>
             </div>
 
-            {/* Custom Progress Bar */}
+
             <div className="w-full bg-slate-700 rounded-full h-2.5 mb-2 mt-4 overflow-hidden">
                 <div className="bg-linear-to-r from-emerald-600 to-emerald-400 h-2.5 rounded-full" style={{ width: `${acceptanceRate}%` }}></div>
             </div>
