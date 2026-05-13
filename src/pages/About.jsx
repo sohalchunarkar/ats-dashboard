@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 animate-page-in">
 
             <div>
                 <h1 className="text-3xl font-bold text-slate-100 tracking-tight">About Us</h1>

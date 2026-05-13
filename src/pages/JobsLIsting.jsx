@@ -36,13 +36,16 @@ const JobsLIsting = () => {
     const currentJobs = filteredJobs.slice(startIndex, endIndex);
 
     setDisplayedJobs(currentJobs);
+    
+    // Smooth scroll to top when page or filter changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pageno, filteredJobs])
 
 
   const maxPages = Math.ceil(filteredJobs.length / 7) || 1;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-page-in">
 
       <div>
         <h1 className="text-3xl font-bold text-slate-100 tracking-tight">Job Listings</h1>
@@ -91,7 +94,10 @@ const JobsLIsting = () => {
       </div>
 
 
-      <div className="flex flex-col gap-4 min-h-100">
+      <div 
+        key={`${pageno}-${department}-${searchQuery}`}
+        className="flex flex-col gap-4 min-h-100 animate-page-in"
+      >
         {displayedJobs.length > 0 ? (
           displayedJobs.map((job) => (
             <JobCard key={job.id} job={job} />
