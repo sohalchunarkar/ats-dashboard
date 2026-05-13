@@ -1,7 +1,7 @@
 # ATS Dashboard
 
 > **Live Demo:** [Add deployed link here]  
-> **GitHub Repo:** [Add repository link here]
+> **GitHub Repo:** [(https://github.com/sohalchunarkar/ats-dashboard.git)]
 
 A responsive Applicant Tracking System (ATS) dashboard built with React and Tailwind CSS. The app includes a login page with protected routes, and four main pages — Dashboard, Jobs, Candidates, and About — with full search, filter, and pagination functionality.
 
@@ -23,7 +23,7 @@ The app starts on the login page. Use the following dummy credentials to access 
 - **Login** — Entry point of the app. Authenticated via localStorage. Includes a theme toggle.
 - **Dashboard** — Overview summary cards, an applications area chart (last 6 months), and an offer acceptance rate card.
 - **Jobs** — Lists all job postings with search by title and filter by department. Paginated (7 per page).
-- **Candidates** — Lists all candidates with search by name and filters by status and gender. Click any candidate card to open a detailed modal. Paginated (7 per page).
+- **Candidates** — Lists all candidates with search by name and filters by status and gender. Paginated (7 per page). Clicking any candidate card opens a **detailed modal** showing full candidate information including name, education, institute, email, gender, address, experience, status, and score.
 - **About** — Information about the ATS platform and a contact form.
 
 ---
@@ -35,7 +35,7 @@ The app starts on the login page. Use the following dummy credentials to access 
 - 🔍 Search and filter on Jobs (by title, department) and Candidates (by name, status, gender)
 - 📄 Pagination on Jobs and Candidates pages (7 items per page)
 - 📊 Area chart for application trends using Recharts
-- 📋 Candidate detail modal on click
+- 📋 Candidate detail modal — click any candidate card to view full profile details in an overlay modal
 - 💾 Dummy JSON data used for all listings (no backend required)
 - 📱 Fully responsive layout
 

@@ -3,13 +3,18 @@ import React, { createContext, useState, useEffect } from 'react'
 export const ThemeDataContext = createContext()
 
 const ThemeContext = (props) => {
-    const [theme, setTheme] = useState(true)
+    const [theme, setTheme] = useState(() => {
+        const stored = localStorage.getItem('theme')
+        return stored !== null ? stored === 'dark' : true
+    })
 
     useEffect(() => {
         if (theme) {
             document.documentElement.classList.add('dark')
+            localStorage.setItem('theme', 'dark')
         } else {
             document.documentElement.classList.remove('dark')
+            localStorage.setItem('theme', 'light')
         }
     }, [theme])
 
