@@ -37,7 +37,7 @@ The app starts on the login page. Use the following dummy credentials to access 
 - 📊 Area chart for application trends using Recharts
 - 📋 Candidate detail modal — click any candidate card to view full profile details in an overlay modal
 - 💾 Dummy JSON data used for all listings (no backend required)
-- 📱 Fully responsive layout
+- 📱 Fully responsive — works seamlessly across mobile, tablet, and desktop screen sizes
 
 ---
 
