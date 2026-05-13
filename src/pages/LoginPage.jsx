@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ThemeDataContext } from '../Context/ThemeContext'
 
 const LoginPage = () => {
+
+    const [theme, setTheme] = useContext(ThemeDataContext)
+
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -12,29 +16,25 @@ const LoginPage = () => {
 
         if (email === 'admin@test.com' && password === 'password') {
             localStorage.setItem('isAuthenticated', 'true')
-
             navigate('/dashboard')
         }
         else {
             alert('Invalid email or password! Please use admin@test.com and password');
         }
-
-
     }
+
     return (
         <div className="min-h-screen flex items-center justify-center px-4 py-8 relative">
 
-
             <button
-                className="absolute top-6 right-6 bg-slate-800 hover:bg-slate-700 text-slate-200 p-2.5 rounded-full shadow-md border border-slate-700 transition-colors z-10"
+                onClick={() => setTheme(!theme)}
+                className="absolute top-6 right-6 bg-slate-800 hover:bg-slate-700 text-slate-200 p-2.5 rounded-full shadow-md border border-slate-700 transition-colors z-10 cursor-pointer"
                 title="Toggle Theme"
             >
-                🌙
+                {theme ? '☀️' : '🌙'}
             </button>
 
-
             <div className="flex flex-col md:flex-row w-full max-w-5xl bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-700">
-
 
                 <div className="hidden md:flex flex-col justify-center relative p-12 w-1/2 bg-slate-800/80 overflow-hidden border-r border-slate-700/50">
 
@@ -50,7 +50,6 @@ const LoginPage = () => {
                         </p>
                     </div>
                 </div>
-
 
                 <div className="w-full md:w-1/2 p-8 md:p-14 flex flex-col justify-center bg-slate-800">
 
@@ -85,7 +84,6 @@ const LoginPage = () => {
                             </div>
                         </div>
 
-
                         <div>
                             <label className="block text-sm font-medium text-slate-300 mb-2">
                                 Password
@@ -113,7 +111,6 @@ const LoginPage = () => {
                                 </button>
                             </div>
                         </div>
-
 
                         <button
                             type="submit"
