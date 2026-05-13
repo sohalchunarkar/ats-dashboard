@@ -1,6 +1,6 @@
 # ATS Dashboard
 
-> **Live Demo:** [Add deployed link here]  
+> **Live Demo:** [https://ats-dashboard-coral.vercel.app/login]  
 > **GitHub Repo:** [(https://github.com/sohalchunarkar/ats-dashboard.git)]
 
 A responsive Applicant Tracking System (ATS) dashboard built with React and Tailwind CSS. The app includes a login page with protected routes, and four main pages — Dashboard, Jobs, Candidates, and About — with full search, filter, and pagination functionality.
