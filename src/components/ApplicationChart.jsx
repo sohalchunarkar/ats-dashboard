@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   AreaChart,
   Area,
@@ -8,6 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer
 } from 'recharts'
+import { ThemeDataContext } from '../Context/ThemeContext'
 
 // Temporary dummy data so we can see the design
 const data = [
@@ -20,11 +21,19 @@ const data = [
 ];
 
 const ApplicationChart = () => {
+  const [theme] = useContext(ThemeDataContext);
+
+  const gridStroke = theme ? "#334155" : "#e2e8f0";
+  const axisStroke = theme ? "#94a3b8" : "#64748b";
+  const tooltipBg = theme ? "#1e293b" : "#ffffff";
+  const tooltipBorder = theme ? "#334155" : "#e2e8f0";
+  const tooltipText = theme ? "#f1f5f9" : "#0f172a";
+
   return (
-    <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md w-full h-96">
+    <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-md w-full h-96 transition-colors duration-200">
       <div className="mb-6">
-        <h3 className="text-lg font-bold text-slate-100">Applications Overview</h3>
-        <p className="text-sm text-slate-400">Total applicants over the last 6 months</p>
+        <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 transition-colors">Applications Overview</h3>
+        <p className="text-sm text-slate-600 dark:text-slate-400 transition-colors">Total applicants over the last 6 months</p>
       </div>
       
       <div className="w-full h-72">
@@ -44,17 +53,17 @@ const ApplicationChart = () => {
                 <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke={gridStroke} vertical={false} />
             <XAxis 
                 dataKey="name" 
-                stroke="#94a3b8" 
+                stroke={axisStroke} 
                 fontSize={12} 
                 tickLine={false}
                 axisLine={false}
                 dy={10}
             />
             <YAxis 
-                stroke="#94a3b8" 
+                stroke={axisStroke} 
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
@@ -62,10 +71,10 @@ const ApplicationChart = () => {
             />
             <Tooltip 
                 contentStyle={{ 
-                    backgroundColor: '#1e293b', 
-                    border: '1px solid #334155',
+                    backgroundColor: tooltipBg, 
+                    border: `1px solid ${tooltipBorder}`,
                     borderRadius: '0.5rem',
-                    color: '#f1f5f9'
+                    color: tooltipText
                 }}
                 itemStyle={{ color: '#10b981' }}
             />

@@ -5,32 +5,30 @@ import { ThemeDataContext } from '../Context/ThemeContext'
 const Navbar = () => {
     const [theme, setTheme] = useContext(ThemeDataContext)
     return (
-        <nav className="sticky top-0 z-50 bg-slate-800/95 backdrop-blur-sm border-b border-slate-700 px-6 py-4 shadow-sm">
+        <nav className="sticky top-0 z-50 bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm border-b border-slate-200 dark:border-slate-700 px-6 py-4 shadow-sm transition-colors duration-200">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
 
-                <Link to="/dashboard" className="text-2xl font-extrabold text-slate-100 tracking-tight">
-                    <span className="text-emerald-500">ATS</span> Dashboard
+                <Link to="/dashboard" className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+                    <span className="text-emerald-600 dark:text-emerald-500">ATS</span> Dashboard
                 </Link>
 
-
                 <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
-                    <Link to="/dashboard" className="text-sm md:text-base text-slate-300 hover:text-emerald-400 font-medium transition-colors">
+                    <Link to="/dashboard" className="text-sm md:text-base text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 font-medium transition-colors">
                         Dashboard
                     </Link>
-                    <Link to="/jobs" className="text-sm md:text-base text-slate-300 hover:text-emerald-400 font-medium transition-colors">
+                    <Link to="/jobs" className="text-sm md:text-base text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 font-medium transition-colors">
                         Jobs
                     </Link>
-                    <Link to="/candidates" className="text-sm md:text-base text-slate-300 hover:text-emerald-400 font-medium transition-colors">
+                    <Link to="/candidates" className="text-sm md:text-base text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 font-medium transition-colors">
                         Candidates
                     </Link>
-                    <Link to="/about" className="text-sm md:text-base text-slate-300 hover:text-emerald-400 font-medium transition-colors">
+                    <Link to="/about" className="text-sm md:text-base text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 font-medium transition-colors">
                         About
                     </Link>
 
-
                     <button 
                         onClick={() => setTheme(!theme)}
-                        className="ml-4 md:ml-8 p-2 text-slate-400 hover:text-emerald-400 hover:bg-slate-700 rounded-lg transition-colors focus:outline-none"
+                        className="ml-4 md:ml-8 p-2 text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors focus:outline-none cursor-pointer"
                     >
                         {/* Dynamic Theme Icon */}
                         {theme ? (
@@ -44,13 +42,12 @@ const Navbar = () => {
                         )}
                     </button>
 
-
                     <button
                         onClick={() => {
                             localStorage.removeItem('isAuthenticated')
                             window.location.href = '/login'
                         }}
-                        className="ml-0 bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-2 rounded-lg text-sm font-semibold border border-slate-600 transition-colors"
+                        className="ml-0 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 px-4 py-2 rounded-lg text-sm font-semibold border border-slate-200 dark:border-slate-600 transition-colors cursor-pointer"
                     >
                         Logout
                     </button>

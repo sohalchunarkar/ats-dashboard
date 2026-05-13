@@ -52,28 +52,28 @@ const renderIcon = (iconName) => {
 
 const SummaryCard = () => {
     return (
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl shadow-md w-full overflow-hidden">
-            <div className="bg-slate-900/50 px-6 py-4 border-b border-slate-700">
-                <h3 className="text-lg font-bold text-slate-100">Overview Summary</h3>
+        <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-md w-full overflow-hidden transition-colors duration-200">
+            <div className="bg-slate-50 dark:bg-slate-900/50 px-6 py-4 border-b border-slate-200 dark:border-slate-700 transition-colors duration-200">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 transition-colors">Overview Summary</h3>
             </div>
-            <div className="flex flex-col divide-y divide-slate-700/50">
+            <div className="flex flex-col divide-y divide-slate-200 dark:divide-slate-700/50 transition-colors duration-200">
                 {dashboardSummary.map((item) => {
                     const isNegative = item.change && item.change.toString().startsWith('-');
                     return (
-                        <div key={item.id} className="flex items-center justify-between px-6 py-4 hover:bg-slate-700/20 transition-colors">
+                        <div key={item.id} className="flex items-center justify-between px-6 py-4 hover:bg-slate-50 dark:hover:bg-slate-700/20 transition-colors duration-200">
                             <div className="flex items-center gap-4">
-                                <div className="p-2 bg-slate-900/50 rounded-lg border border-slate-700/50">
+                                <div className="p-2 bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-700/50 transition-colors duration-200">
                                     {renderIcon(item.icon)}
                                 </div>
                                 <div>
-                                    <p className="text-sm font-medium text-slate-400">{item.title}</p>
-                                    <p className={`text-xs mt-0.5 font-medium ${isNegative ? 'text-rose-400' : 'text-emerald-400'}`}>
+                                    <p className="text-sm font-medium text-slate-600 dark:text-slate-400 transition-colors">{item.title}</p>
+                                    <p className={`text-xs mt-0.5 font-medium ${isNegative ? 'text-rose-500 dark:text-rose-400' : 'text-emerald-500 dark:text-emerald-400'}`}>
                                         {item.change}
                                     </p>
                                 </div>
                             </div>
                             <div className="text-right">
-                                <span className="text-xl font-bold text-slate-100">{item.value}</span>
+                                <span className="text-xl font-bold text-slate-900 dark:text-slate-100 transition-colors">{item.value}</span>
                             </div>
                         </div>
                     )

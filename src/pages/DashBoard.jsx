@@ -8,8 +8,8 @@ const DashBoard = () => {
     <div className="space-y-6 animate-page-in">
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-100 tracking-tight">Dashboard Overview</h1>
-        <p className="text-slate-400 mt-2">Welcome back! Here is what's happening with your hiring process today.</p>
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100 tracking-tight transition-colors">Dashboard Overview</h1>
+        <p className="text-slate-600 dark:text-slate-400 mt-2 transition-colors">Welcome back! Here is what's happening with your hiring process today.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
