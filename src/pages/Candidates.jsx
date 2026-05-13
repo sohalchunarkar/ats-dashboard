@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import candidateData from '../data/candidateData'
 import CandidateCard from '../components/CandidateCard'
+import CandidateModal from '../components/CandidateModal'
 
 const Candidates = () => {
   const [pageno, setPageno] = useState(1)
@@ -12,6 +13,8 @@ const Candidates = () => {
   const [filteredCandidates, setFilteredCandidates] = useState(candidateData)
 
   const [displayedCandidates, setDisplayedCandidates] = useState([])
+  
+  const [selectedCandidateId, setSelectedCandidateId] = useState(null)
 
 
   useEffect(() => {
@@ -132,7 +135,9 @@ const Candidates = () => {
       >
         {displayedCandidates.length > 0 ? (
           displayedCandidates.map((candidate) => (
-            <CandidateCard key={candidate.id} candidate={candidate} />
+            <div key={candidate.id} onClick={() => setSelectedCandidateId(candidate.id)} className="cursor-pointer">
+              <CandidateCard candidate={candidate} />
+            </div>
           ))
         ) : (
           <div className="border-2 border-dashed border-slate-700 rounded-xl flex items-center justify-center bg-slate-800/30 h-64">
@@ -170,6 +175,13 @@ const Candidates = () => {
           Next
         </button>
       </div>
+
+      {selectedCandidateId && (
+        <CandidateModal 
+          id={selectedCandidateId} 
+          onClose={() => setSelectedCandidateId(null)} 
+        />
+      )}
 
     </div>
   )
